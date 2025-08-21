@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    open-in-view: false
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+  sql:
+    init:
+      mode: always # sql? ??? ??? ?? ???? ???
+debug: false
+
+logging:
+  level:
+    org.delivery.koreatestdata: debug
+    org.springframework.web.servlet: debug
+
