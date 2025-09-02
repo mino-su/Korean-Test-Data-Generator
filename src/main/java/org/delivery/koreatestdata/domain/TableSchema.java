@@ -13,15 +13,10 @@ import java.util.Objects;
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity
 @ToString
-@Table
 @AllArgsConstructor
 public class TableSchema {
     private String schemaName;
-
-    @Id
-    @GeneratedValue()
     private String userId;
 
     private LocalDateTime exportedAt;

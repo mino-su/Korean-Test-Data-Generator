@@ -1,5 +1,7 @@
 package org.delivery.koreatestdata.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.*;
 import org.delivery.koreatestdata.domain.constant.MockDataType;
 
