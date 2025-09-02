@@ -1,4 +1,10 @@
 spring:
+  application:
+    name: koreatestdata
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PW}
   jpa:
     open-in-view: false
     defer-datasource-initialization: true
@@ -9,7 +15,7 @@ spring:
       hibernate.format_sql: true
   sql:
     init:
-      mode: always # sql? ??? ??? ?? ???? ???
+      mode: always
 debug: false
 
 logging:
@@ -17,3 +23,14 @@ logging:
     org.delivery.koreatestdata: debug
     org.springframework.web.servlet: debug
 
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL;DATABASE_TO_LOWER=TRUE
+    username: sa
