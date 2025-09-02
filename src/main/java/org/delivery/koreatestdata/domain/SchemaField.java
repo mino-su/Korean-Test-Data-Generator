@@ -1,6 +1,7 @@
 package org.delivery.koreatestdata.domain;
 
 import lombok.*;
+import org.delivery.koreatestdata.domain.constant.MockDataType;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class SchemaField {
     private String fieldName;
-    private String mockDataType;
+    private MockDataType mockDataType;
     private Integer fieldOrder;
     private Integer blankPercent;
 
