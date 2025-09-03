@@ -18,7 +18,18 @@ import java.util.Set;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table
+@Table(
+
+        uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"userId", "schemaName"})
+        },
+
+        indexes = {
+        @Index(columnList = "createdAt"),
+        @Index(columnList = "modifiedAt")
+        }
+
+)
 @ToString(callSuper = true)
 @Entity
 public class TableSchema extends AuditingFields{
@@ -35,6 +46,7 @@ public class TableSchema extends AuditingFields{
 
 
     @ToString.Exclude
+    @OrderBy("fieldOrder ASC")
     @OneToMany(mappedBy = "tableSchema", cascade = CascadeType.ALL, orphanRemoval = true)
     private final Set<SchemaField> schemaFields = new LinkedHashSet<>();
 
@@ -66,5 +78,9 @@ public class TableSchema extends AuditingFields{
 
     public static TableSchema of(String schemaName, String userId) {
         return new TableSchema(schemaName, userId);
+    }
+
+    public void clearSchemaFields() {
+        this.schemaFields.clear();
     }
 }

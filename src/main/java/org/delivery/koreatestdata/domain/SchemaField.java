@@ -32,7 +32,9 @@ public class SchemaField extends AuditingFields{
     private String fieldName;
     @Setter
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private MockDataType mockDataType;
+
     @Setter
     @Column(nullable = false)
     private Integer fieldOrder;
@@ -44,11 +46,21 @@ public class SchemaField extends AuditingFields{
     @Setter private String forceValue;
 
 
-    public static SchemaField of(TableSchema tableSchema, String fieldName, MockDataType mockDataType, Integer fieldOrder, Integer blankPercent, String typeOptionJson, String forceValue) {
-        return new SchemaField(tableSchema, fieldName, mockDataType, fieldOrder, blankPercent, typeOptionJson, forceValue);
+    public static SchemaField of(String fieldName, MockDataType mockDataType, Integer fieldOrder, Integer blankPercent, String typeOptionJson, String forceValue) {
+        return new SchemaField(fieldName, mockDataType, fieldOrder, blankPercent, typeOptionJson, forceValue);
     }
 
-    public SchemaField(TableSchema tableSchema, String fieldName, MockDataType mockDataType, Integer fieldOrder, Integer blankPercent,  String typeOptionJson,String forceValue) {
+
+    public SchemaField(String fieldName, MockDataType mockDataType, Integer fieldOrder, Integer blankPercent, String typeOptionJson, String forceValue) {
+        this.fieldName = fieldName;
+        this.mockDataType = mockDataType;
+        this.fieldOrder = fieldOrder;
+        this.blankPercent = blankPercent;
+        this.typeOptionJson = typeOptionJson;
+        this.forceValue = forceValue;
+    }
+
+    public SchemaField(TableSchema tableSchema, String fieldName, MockDataType mockDataType, Integer fieldOrder, Integer blankPercent, String typeOptionJson, String forceValue) {
         this.tableSchema = tableSchema;
         this.fieldName = fieldName;
         this.mockDataType = mockDataType;
