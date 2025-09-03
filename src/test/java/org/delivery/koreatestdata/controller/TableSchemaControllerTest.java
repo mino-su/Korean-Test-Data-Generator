@@ -1,6 +1,10 @@
 package org.delivery.koreatestdata.controller;
 
 import org.delivery.koreatestdata.config.SecurityConfig;
+import org.delivery.koreatestdata.domain.constant.MockDataType;
+import org.delivery.koreatestdata.dto.request.SchemaFieldRequest;
+import org.delivery.koreatestdata.dto.request.TableSchemaRequest;
+import org.delivery.koreatestdata.util.FormDataEncoder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +12,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
@@ -18,7 +24,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @DisplayName("[Controller] 테이블 스키마 컨트롤러 테스트")
 @Import(SecurityConfig.class)
 @WebMvcTest
-record TableSchemaControllerTest(@Autowired MockMvc mvc) {
+record TableSchemaControllerTest(@Autowired MockMvc mvc, @Autowired FormDataEncoder formDataEncoder) {
+
+
+
     @Test
     @DisplayName("[GET] 테이블 스키마 뷰 -> 테이블 스키마 뷰 정상 응답")
     void givenNothing_whenRequesting_thenShowTableSchemaView() throws Exception {
@@ -35,12 +44,16 @@ record TableSchemaControllerTest(@Autowired MockMvc mvc) {
     @DisplayName("[POST] 테이블 스키마 추가 -> 테이블 스키마 뷰 정상 응답")
     void givenNothing_whenRequesting_thenAddTableSchema() throws Exception {
         //given
-
+        var request = TableSchemaRequest.of("test-schema", "홍길동",
+                List.of(
+                        SchemaFieldRequest.of("id", MockDataType.ROW_NUMBER, 1, 0, null, null),
+                        SchemaFieldRequest.of("name", MockDataType.ROW_NUMBER, 2, 10, null, null),
+                        SchemaFieldRequest.of("age", MockDataType.ROW_NUMBER, 3, 20, null, null)));
         //when & then
         mvc.perform(post("/table-schema")
-                        .content("sample data")
+                        .content(formDataEncoder.encode(request)) // TODO: data 부분 수정 필요
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                        .with(csrf())) // TODO: data 부분 수정 필요
+                        .with(csrf()))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/table-schema"));
     }
