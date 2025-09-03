@@ -10,6 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
+import java.time.LocalDateTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -26,7 +28,8 @@ record MainControllerTest(@Autowired MockMvc mvc) {
     void givenNoting_whenEnteringRootPage_thenShowMainView() throws Exception {
 
         //given
-
+        LocalDateTime date = LocalDateTime.now();
+        date.plusDays(1);
         //when
         ResultActions result = mvc.perform(get("/"));
 
