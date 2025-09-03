@@ -92,7 +92,7 @@ record TableSchemaControllerTest(@Autowired MockMvc mvc, @Autowired FormDataEnco
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.TEXT_PLAIN))
                 .andExpect(header().string("Content-Disposition", "attachment; filename=table-schema.txt"))
-                .andExpect(content().string("download complete!")) // TODO: 실제 파일 내용으로 변경 필요
+                .andExpect(content().string("download complete!"))
         ;
     }
 }
