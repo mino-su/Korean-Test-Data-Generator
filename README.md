@@ -2,6 +2,9 @@
 
 ⚙️ 한글 테스트 데이터 자동 생성기
 
+<img width="1644" height="714" alt="스크린샷 2025-09-08 오후 5 31 35" src="https://github.com/user-attachments/assets/b1e07c12-a6a4-4101-9b0c-2ba5c0aee1fe" />
+
+
 ## 설계사항
 
 ### 텍스트 데이터 스키마
