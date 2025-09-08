@@ -39,4 +39,19 @@ record MainControllerTest(@Autowired MockMvc mvc) {
                 .andExpect(view().name("index")) // index 뷰 반환
                 ;
     }
+
+    @DisplayName("[GET] 메인 페이지 요청시 -> Main 뷰 반환")
+    @Test
+    void givenNoting_whenEnteringRootPage_thenShowMainView2() throws Exception {
+
+        //given
+
+        //when
+
+
+        //then
+        mvc.perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(forwardedUrl("/table-schema"));
+    }
 }

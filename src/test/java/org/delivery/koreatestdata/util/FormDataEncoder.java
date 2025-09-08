@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.test.context.TestComponent;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
@@ -15,6 +14,7 @@ import java.util.stream.IntStream;
  * 테스트 편의를 위해 만든 테스트 전용 유틸리티 클래스.
  * 객체 데이터를 post form data로 인코딩하는 기능을 제공한다.
  */
+
 @TestComponent
 public class FormDataEncoder {
 
