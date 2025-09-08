@@ -2,7 +2,11 @@
 
 ⚙️ 한글 테스트 데이터 자동 생성기
 
-<img width="822" height="307" alt="스크린샷 2025-09-08 오후 5 31 35" src="https://github.com/user-attachments/assets/b1e07c12-a6a4-4101-9b0c-2ba5c0aee1fe" />
+
+<img width="757" height="349" alt="스크린샷 2025-09-08 오후 5 38 45" src="https://github.com/user-attachments/assets/36226f3a-a67e-4e3d-85c1-51f6d5bed16c" />
+
+
+
 
 
 ## 설계사항
