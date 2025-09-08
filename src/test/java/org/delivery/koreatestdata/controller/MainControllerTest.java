@@ -23,26 +23,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 record MainControllerTest(@Autowired MockMvc mvc) {
 
 
-    @DisplayName("[GET] 메인 페이지 요청시 -> index 뷰 반환")
-    @Test
-    void givenNoting_whenEnteringRootPage_thenShowMainView() throws Exception {
-
-        //given
-        LocalDateTime date = LocalDateTime.now();
-        date.plusDays(1);
-        //when
-        ResultActions result = mvc.perform(get("/"));
-
-        //then
-        result.andExpect(status().isOk()) // 200 OK
-                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML)) // content-type: text/html
-                .andExpect(view().name("index")) // index 뷰 반환
-                ;
-    }
 
     @DisplayName("[GET] 메인 페이지 요청시 -> Main 뷰 반환")
     @Test
-    void givenNoting_whenEnteringRootPage_thenShowMainView2() throws Exception {
+    void givenNoting_whenEnteringRootPage_thenShowMainView() throws Exception {
 
         //given
 
