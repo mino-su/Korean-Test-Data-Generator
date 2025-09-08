@@ -3,9 +3,7 @@
 ⚙️ 한글 테스트 데이터 자동 생성기
 
 
-<img width="757" height="349" alt="스크린샷 2025-09-08 오후 5 38 45" src="https://github.com/user-attachments/assets/36226f3a-a67e-4e3d-85c1-51f6d5bed16c" />
-
-
+<img width="700" height="300" alt="스크린샷 2025-09-08 오후 5 38 45" src="https://github.com/user-attachments/assets/9ec8cbf6-bade-4406-b8d4-aa4d3207de58" />
 
 
 
